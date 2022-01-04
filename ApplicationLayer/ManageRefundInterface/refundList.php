@@ -73,6 +73,7 @@ function makeConnect($sql){
            type='text/css'>
        </link>
        <link href="/Project/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
        <link rel="stylesheet" href="/Project/css/home.css">
    <style>
    body,
@@ -166,7 +167,7 @@ function makeConnect($sql){
                 
                 <li><a href="/Project/ApplicationLayer/ManageOrderInterface/cart.php"><i class="fa fa-shopping-cart"></i><span>Cart</span></a></li>
                 <li><a href="/Project/ApplicationLayer/ManageRefundInterface/refundList.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
-                <li><a href="/Project/ApplicationLayer/ManageRefundInterface/myRefund.php"><i class="fa fa-user" class="fa fa-money"></i><span>My Refund</span></a></li>
+                <li><a href="/Project/ApplicationLayer/ManageRefundInterface/myRefund.php"><i class="material-icons" style="font-size:21px">class</i><span>My Refund</span></a></li>
                 <li><a href="/Project/ApplicationLayer/ManageCustomerInterface/logout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
                 
                 <a href="/Project/ApplicationLayer/ManageCustomerInterface/customerProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $name; ?></span></a>
@@ -351,64 +352,6 @@ else{
 </form >
 
 <td><h3><button class="btn btn3" name="request_refund">Request Refund</button></h3></td>
-
-<hr>
-<center><h3>My Refund  </h3 ></center>
-
-<form method="post">
-<table class="content-table">
-
-       <tr>
-         <th>refund id</th>
-         <th>Refund Item</th>
-         <th>Time</th>
-         <th>Current Status</th>
-
-      </tr>
-
-<?php if($result_confirmation_refund->num_rows>0){
-  while($row=$result_confirmation_refund->fetch_assoc()){
-      $num=$num+1;
-      $item=$row['item'];
- ?><tr>
-        <td><?php echo $row['refund_id'];?></td>
-        <td><?php echo $row['item'];?></td>
-        <td><?php echo $row['refund_time'];?></td>
-        <td><?php echo $row['refund_status']; ?></td>
-        <td><?php if ($row["refund_status"]=="Pending....") {
-
-        ?>
-        <input type="submit" value="cancel request" class="btn btn1" name="Submit1"  onclick="delete_request()" >
-        <?php
-        }
-        ?>
-      </td>
-      </tr>
-<?php
-}
-if (isset($_POST["Submit1"])) {
-  $status="";
-  $sql="UPDATE refund SET refund_status='$status'  WHERE item='$item'";
-  $result=makeConnect($sql);
-   header('location:refundList.php?Sucsses_cancel_refund');
-}
-}else {
-?>
-<tr><td></td><td></td><td>
-<?php
-  echo "no refund has been made";
-?>
-</td><td></td></tr>
-<?php
- }
- ob_flush();
-?>
-</table>
-<br>
-</form>
-</center>
-</body>
-</html>
 
 
 
