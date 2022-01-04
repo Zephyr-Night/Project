@@ -204,7 +204,7 @@ function makeConnect($sql){
         <td><?php if ($row["refund_status"]=="Pending....") {
 
         ?>
-        <input type="submit" value="cancel request" class="btn btn1" name="Submit1"  onclick="delete_request()" >
+        <input type="submit" value="cancel request" class="btn btn-danger" name="Submit1"  onclick="delete_request()" >
         <?php
         }
         ?>
@@ -216,7 +216,7 @@ if (isset($_POST["Submit1"])) {
   $status="";
   $sql="UPDATE refund SET refund_status='$status'  WHERE item='$item'";
   $result=makeConnect($sql);
-   header('location:refundList.php?Sucsses_cancel_refund');
+   header('location:myRefund.php?Sucsses_cancel_refund');
 }
 }else {
 ?>

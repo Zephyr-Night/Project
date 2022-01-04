@@ -121,10 +121,7 @@ function makeConnect($sql){
        cursor: pointer;
    }
 
-   .hero-text button:hover {
-       background-color: #555;
-       color: white;
-   }
+  
 
    ul {
        list-style-type: none;
@@ -221,9 +218,9 @@ if($result_list_refund->num_rows>0){
 
 
 
-
+<br>
 <tr><td></td>
- <td><h4>Total cost refund :</h4> </td>
+ <td><h4>Total cost refund :</h4> </td><br>
 <td>
   <h3>
 <?php if(isset($_POST['submit_add'])){
@@ -276,7 +273,7 @@ if($result_list_refund->num_rows>0){
 </td>
 
 <td></td>
-  <td><h3><input type="submit" class="btn btn3" id="btn" name="submit_add" value="SUM"></h3></td>
+  <td><h3><input type="submit" class="btn btn-success" id="btn" name="submit_add" value="SUM"></h3></td>
 </tr>
 
 <?php
@@ -351,7 +348,7 @@ else{
 </table>
 </form >
 
-<td><h3><button class="btn btn3" name="request_refund">Request Refund</button></h3></td>
+<td><h3><button class="btn btn-info" name="request_refund">Request Refund</button></h3></td>
 
 
 
