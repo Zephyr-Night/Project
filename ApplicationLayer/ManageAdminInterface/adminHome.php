@@ -126,7 +126,7 @@ ul {
 
   <div class="hero-image">
   <div class="hero-text">
-    <h1 style="font-size:70px">D I N G O F O O D</h1>
+    <h1 style="font-size:70px">D I N G O  F O O D</h1>
     <p style="color: black">Everything's Fresh Here at DingoFood</p><br>
   </div>
 </div>
