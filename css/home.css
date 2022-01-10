@@ -43,7 +43,7 @@ body {
   left: 50%;
   bottom: 0;
   height: 2px;
-  background-color: #e74c3c;
+  background-color: royalblue;
 }
 #navigation-bar a:hover::before {
   right: 0;
@@ -113,9 +113,9 @@ h3{
 }
 
 .large:hover {
-	/* 
+	/*
 	don't forget the 1px border!
-	The first language is 40px heigh, 
+	The first language is 40px heigh,
 	the others are 41px
 	*/
 	height: 245px;
@@ -250,7 +250,8 @@ h3{
   border-radius: 5px;
 }
 .btn--red {
-  background: #ff4b5a;
+  background: #0000FF
+;
 }
 .btn--red:hover {
   background: #eb3746;
