@@ -60,349 +60,182 @@ if (isset($_GET['term'])) {
 
 ?>
 
+
+
 <!DOCTYPE html>
-<html lang="en" >
+<html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>List Menu</title>
-	<script language="javascript" type="text/javascript">
-	window.history.forward();
-	</script>
-	
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <title>DINGO FOOD - Food Ordering System (FOS)</title>
 
-		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300'>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/Project/css/style1.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
-		<meta name="author" content="">
-
-		<title>DINGO FOOD - Food Ordering System (FOS)</title>
-		<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
-				rel="stylesheet"  type='/Project/text/css'>
-		</link>
-		    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="/Project/css/home.css">
-
-<!-- STYLE -->
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
- 
-}
-
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
-.price {
-  color: grey;
-  font-size: 22px;
-}
-
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.card button:hover {
-  opacity: 0.7;
-}
-
-#emp_table {
-    border:1px solid lavender;
-    border-radius:1px;
-}
-
-/* Table header */
-
-.tr_header th a{
-    color: white;
-  text-align: center;
-    text-decoration: none;
-}
-
-.tr_header{ 
-    background-color: black ;
-}
-
-.tr_header th{
-    color:black;
-    padding:10px 0px;
-    letter-spacing: 1px;
-  text-align: center;
-}
-
-/* Table rows and columns */
-#emp_table td{
-    padding:10px;
-  text-align: center;
-}
-#emp_table tr:nth-child(even){
-    background-color:lavender;
-    color:black;
-}
-
-
-
-/* */
-#div_pagination{
-    width:100%;
-    margin-top:5px;
-    text-align:center;
-}
-
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: white;
-}
-
-.hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/Project/img/dingoLogo3.jfif");
-  height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-
-.hero-text button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 10px 25px;
-  color: black;
-  background-color: #ddd;
-  text-align: center;
-  cursor: pointer;
-}
-
-.hero-text button:hover {
-  background-color: #555;
-  color: white;
-}
-
-ul {
-    list-style-type: none;
-
-}
-
-.custom {
-    width: 150px !important;
-}
-
-.btn1 {
-  background-color: #0645AD; 
-  color: white; 
-  width: 80px;
-  height: 25px;
-  border-radius: 12px;
-  border: 2px solid #0645AD;
-}
-
-.btn1:hover {
-  background-color: white;
-  color: black;
-}
-
-.btn2 {
-  background-color: #f44336; 
-  color: black; 
-  width: 80px;
-  height: 25px;
-  border-radius: 12px;
-  border: 2px solid #f44336;
-}
-
-.btn2:hover {
-  background-color: white;
-  color: blacl;
-}
-</style>
-
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
-
-<body>
-
 
 <?php
 $row=0;
 $sno = $row + 1;
 ?>
 
-<!-- HEADER DINGO -->
 
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="font-size:70px">D I N G O F O O D</h1>
-    <p style="color: black">Everything's Fresh Here at DingoFood</p><br>
-  </div>
-</div>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Dingo Food</h3>
+            </div>
 
-<!-- NAVBAR -->
+            <ul class="list-unstyled components">
+               <p>Admin</p>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminHomeM.php"><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
+                </li>
+                <li class="active">
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i>&nbsp;List</a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenuM.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fas fa-money-bill-alt"></i>&nbsp;Refund</a>
+                </li>
+            
+        </nav>
 
-<div id="menu-nav">
-  <div style="list-style-type: none;" id="navigation-bar">
- <ul>
-      <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>Home</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i><span>List</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i><span>New Menu</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageReportInterface/indexAdmin.php"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
-    <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
-    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $admin_username; ?> </span></a>
-    </ul>
-  </div>
-</div>
+        <!-- Page Content  -->
+        <div id="content">
 
-<!-- DISPLAY MENU ACCORDING MENU_CATEGORY -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
 
-<div class="container" style="margin-top:20px">
-          <center><h5><?php echo isset($_GET['menu_category'])? $_GET['menu_category']: '';?> List Menu [
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#">Sign Out</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Muhammad Fikri</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+             <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+
+            <h1><?php echo isset($_GET['menu_category'])? $_GET['menu_category']: '';?> List Menu [
                 <a href="listMenu.php">All</a> .
                 <a href="listMenu.php?menu_category=Cake">Cake</a> .
                 <a href="listMenu.php?menu_category=Beverage">Beverage</a> .
-                <a href="listMenu.php?menu_category=Mini Bites">Mini Bites</a> ]</h5>
-<br>
+                <a href="listMenu.php?menu_category=Mini Bites">Mini Bites</a> ]</h1>
+                    
+                    </div>
 
-<!-- DISPLAY MENU -->
 
-  <div id="content">
-    <table  class="table" >
-      <thead class="table-dark">
-      <tr >
-        <th>No</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Cost</th>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Image</th>
-        <th>Image File</th>
-        <th>Action</th>
+
+             <div class="row">
+
+                        <table id="emp_table" width="100%" border="0" >
+      <tr class="tr_header" >
+        <th class="solid"><a>No</a></th>
+        <th class="solid"><a>Name</a></th>
+        <th class="solid"><a>Price</a></th>
+        <th class="solid"><a>Cost</a></th>
+        <th class="solid"><a>Category</a></th>
+        <th class="solid"><a>Description</a></th>
+        <th class="solid"><a>Status</a></th>
+        <th class="solid"><a>Image</a></th>
+        <th class="solid"><a>Image File</a></th>
+        <th class="solid"><a>Action</a></th>
       </tr>
-      </thead>
-      <tbody class="table-light">
-        <?php 
+      <?php 
 
-          foreach($data as $row){
-          ?>
-          <tr text-align="center">
+        foreach($data as $row){
+      ?>
+      <tr text-align="center">
+        <td class="solid"><?php echo $sno; ?></td>
+        <td class="solid"><?php echo $row['menu_name']; ?></td>
+        <td class="solid">RM <?php echo $row['menu_price']; ?></td>
+        <td class="solid">RM <?php echo $row['cost']; ?></td>
+        <td class="solid"><?php echo $row['menu_category']; ?></td>
+        <td class="solid"><?php echo $row['menu_description']; ?></td>
+        <td class="solid"><?php echo $row['menu_status']; ?></td>
+        <td class="solid"><img src="/Project/img/<?php echo $row["menu_image"]; ?>" style="width:40px"></td>
+        <td><?php echo $row['menu_image']; ?></td>
 
-            <td class="solid"><?php echo $sno; ?></td>
-            <td class="solid"><?php echo $row['menu_name']; ?></td>
-            <td class="solid">RM <?php echo $row['menu_price']; ?></td>
-            <td class="solid">RM <?php echo $row['cost']; ?></td>
-            <td class="solid"><?php echo $row['menu_category']; ?></td>
-            <td class="solid"><?php echo $row['menu_description']; ?></td>
-            <td class="solid"><?php echo $row['menu_status']; ?></td>
-            <td class="solid"><img src="/Project/img/<?php echo $row["menu_image"]; ?>" style="width:40px"></td>
-            <td><?php echo $row['menu_image']; ?></td>
+<!-- ACTION BUTTON (EDIT/DELETE MENU) -->
 
-            <!-- ACTION BUTTON (EDIT/DELETE MENU) -->
+        <td><form action="" method="POST" onsubmit="return confirm('Are you sure want to delete?');">
+          <button class="button btn1" input type="button" name = "edit" value="Edit" onclick="location.href='editMenu.php?id=<?=$row['menu_id']?>'">Edit</button><br>
+          <input type="hidden" name="menu_id" value="<?=$row['menu_id']?>"><br>
+          <button class="button btn2" input type="submit" name="delete" value="Delete">Delete</button>
+        </form></td>
 
-            <td><form action="" method="POST" onsubmit="return confirm('Are you sure want to delete?');">
-              <button class="btn btn-primary custom" input type="button" name = "edit" value="Edit" onclick="location.href='editMenu.php?id=<?=$row['menu_id']?>'">Edit</button><br>
-              <input type="hidden" name="menu_id" value="<?=$row['menu_id']?>"><br>
-              <button class="btn btn-danger custom" input type="submit" name="delete" value="Delete">delete</button>
-            </form></td>
-          </tr>
-        <?php
-          $sno++;
-          } 
-          ?>
-      </tbody>
-     
+
+      </tr>
+      <?php
+      $sno++;
+      } 
+      ?>
     </table>
-  </div>
-
-</div>
-
-<br>
-
-    
-<!-- Bootstrap core JavaScript -->
-    <script src="/Project/vendor/jquery/jquery.min.js"></script>
-    <script src="/Project/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugin JavaScript -->
-    <script src="/Project/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-<!-- Contact form JavaScript -->
-    <script src="/Project/js/jqBootstrapValidation.js"></script>
-    <script src="/Project/js/contact_me.js"></script>
-
-<!-- Custom scripts for this template -->
-    <script src="/Project/js/agency.min.js"></script>
 
 
-<!-- Footer -->
-    <footer class="p-4 mb-0 bg-secondary">
-     <div class="container">
-       <CENTER><p class="m-0 text-center text-white">&copy; 2021 DINGO FOOD. All Rights Reserved</p></CENTER>
-     </div>
-    </footer>
+                    </div>
 
+
+                      
+
+                 <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>  
+                    
+        </div>
+
+    </div>
+
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
 </body>
+
 </html>
