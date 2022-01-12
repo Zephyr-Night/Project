@@ -1,21 +1,21 @@
 <?php
-require_once '../../libs/database.php';
+require_once 'C:/xampp/htdocs/Project/libs/database.php';
 
 class reportModel{
     public $report_id,$menu_price,$quantity,$total_amount,$total_revenue;
      
     function viewallReport(){
-        $sql = "select orders.order_id,orders.order_quantity,menu.menu_price from orders INNER JOIN menu ON orders.order_id=menu.menu_id";
+        $sql = "select orders.order_id,orders.order_quantity,menu.menu_price from orders INNER JOIN menu ON orders.menu_id=menu.menu_id";
         return DB::run($sql);
     }
 
     function viewWeeklyReport(){
-        $sql = "select orders.order_detail,orders.order_quantity,menu.menu_price from orders INNER JOIN menu ON orders.order_id=menu.menu_id";
+        $sql = "select orders.order_detail,orders.order_quantity,menu.menu_price from orders INNER JOIN menu ON orders.menu_id=menu.menu_id";
         return DB::run($sql);
     }
 
     function viewMonthlyReport(){
-        $sql = "select menu.cost,orders.order_quantity,menu.menu_price from orders INNER JOIN menu ON orders.order_id=menu.menu_id";
+        $sql = "select menu.cost,orders.order_quantity,menu.menu_price from orders INNER JOIN menu ON orders.menu_id=menu.menu_id";
              
         return DB::run($sql);
     }
@@ -28,7 +28,7 @@ class reportModel{
 
     function exportReport(){
         $conn=mysqli_connect("localhost","root","","dingofood");   
-	    $query ="select orders.order_id,orders.order_quantity,menu.menu_price from orders INNER JOIN menu ON orders.order_id=menu.menu_id";
+	    $query ="select orders.order_id,orders.order_quantity,menu.menu_price from orders INNER JOIN menu ON orders.menu_id=menu.menu_id";
         $result = mysqli_query($conn,$query) or die ("Error");
         $data = array();
 
