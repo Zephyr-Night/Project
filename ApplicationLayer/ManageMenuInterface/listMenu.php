@@ -99,13 +99,13 @@ $sno = $row + 1;
             <ul class="list-unstyled components">
                <p>Admin</p>
                 <li>
-                    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminHomeM.php"><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
+                    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
                 </li>
                 <li class="active">
                     <a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i>&nbsp;List</a>
                 </li>
                 <li>
-                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenuM.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
                 </li>
                 <li>
                     <a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fas fa-money-bill-alt"></i>&nbsp;Refund</a>
@@ -113,32 +113,40 @@ $sno = $row + 1;
             
         </nav>
 
-        <!-- Page Content  -->
-        <div id="content">
+  <!-- Page Content  -->
+  <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-white topbar mb-4 static-top shadow">
+        <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span>Toggle Sidebar</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-align-justify"></i>
+            </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#">Sign Out</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Muhammad Fikri</a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item ">
+                    <a class="nav-link" href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fas fa-sign-out-alt"></i>&nbsp;<span>Sign Out</span></a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user"></i>
+                &nbsp; <?php echo $admin_username; ?>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php">Profile</a>
+                    <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfileEdit.php">Edit Profile</a>
                 </div>
-            </nav>
+                </div>
+        </div>
+    </nav>
+
 
              <div class="container-fluid">
 
@@ -146,11 +154,11 @@ $sno = $row + 1;
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
 
-            <h1><?php echo isset($_GET['menu_category'])? $_GET['menu_category']: '';?> List Menu [
-                <a href="listMenu.php">All</a> .
-                <a href="listMenu.php?menu_category=Cake">Cake</a> .
-                <a href="listMenu.php?menu_category=Beverage">Beverage</a> .
-                <a href="listMenu.php?menu_category=Mini Bites">Mini Bites</a> ]</h1>
+            <h2><?php echo isset($_GET['menu_category'])? $_GET['menu_category']: '';?> List Menu [
+                <a class="btn btn-link" href="listMenu.php">All</a> .
+                <a class="btn btn-link" href="listMenu.php?menu_category=Cake">Cake</a> .
+                <a class="btn btn-link" href="listMenu.php?menu_category=Beverage">Beverage</a> .
+                <a class="btn btn-link" href="listMenu.php?menu_category=Mini Bites">Mini Bites</a> ]</h2>
                     
                     </div>
 
@@ -158,7 +166,13 @@ $sno = $row + 1;
 
              <div class="row">
 
-                        <table id="emp_table" width="100%" border="0" >
+             <div class="card shadow mb-4">
+    <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Details</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
       <tr class="tr_header" >
         <th class="solid"><a>No</a></th>
         <th class="solid"><a>Name</a></th>
@@ -188,10 +202,11 @@ $sno = $row + 1;
 
 <!-- ACTION BUTTON (EDIT/DELETE MENU) -->
 
-        <td><form action="" method="POST" onsubmit="return confirm('Are you sure want to delete?');">
-          <button class="button btn1" input type="button" name = "edit" value="Edit" onclick="location.href='editMenu.php?id=<?=$row['menu_id']?>'">Edit</button><br>
-          <input type="hidden" name="menu_id" value="<?=$row['menu_id']?>"><br>
-          <button class="button btn2" input type="submit" name="delete" value="Delete">Delete</button>
+        <td class="solid"  style="width: 15%"><form action="" method="POST" onsubmit="return confirm('Are you sure want to delete?');">
+          <button class="btn btn-warning" input type="button" name = "edit" value="Edit" onclick="location.href='editMenu.php?id=<?=$row['menu_id']?>'">Edit</button> &nbsp;
+        
+          <input type="hidden" name="menu_id" value="<?=$row['menu_id']?>">
+          <button class="btn btn-danger" input type="submit" name="delete" value="Delete">Delete</button>
         </form></td>
 
 
