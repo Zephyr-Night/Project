@@ -237,7 +237,7 @@ ul {
     color: white;
 }
 
-
+<!-- /BUTTON STYLE -->
 
 </style>
 <body>
@@ -292,20 +292,22 @@ ul {
             $total_amount = $menu_price * $quantity;
             $total_revenue+=$total_amount;
 			$sno ++;
-            echo '
+    ?>
             <form action="" method="POST">
             <tr>
-                <td align="center">'.$sno.'</td>
-                <td align="center">'.$menu_id.'</td>
-                <td align="center">'.$menu_price.'</td>
-                <td align="center">'.$quantity.'</td>
-                <td align="center">'.$total_amount.'</td>
+                <td align='center'><?php echo $sno; ?></td>
+                <td align='center'><?php echo $menu_id; ?></td>
+                <td align='center'><?php echo $menu_price; ?></td>
+                <td align='center'><?php echo $quantity; ?></td>
+                <td align='center'><?php echo $total_amount; ?></td>
+                
+                <?php
+            echo '<td><input type="hidden" name="order_id" value=' . $row['order_id'] . '><button class="btn btn--radius-2 btn--red" type="submit" name="buy" value="BUY">Delete</button></td>';
+            echo '<td><input type="hidden" name="order_id" value=' . $row['order_id'] . '><button class="btn btn--radius-2 btn--red" type="submit" name="sell" value="SELL">Export</button></td>';
+        
+            }
 
-                <td><input type="hidden" name="order_id" value=' . $row['order_id'] . '><button class="btn btn--radius-2 btn--red" type="submit" name="buy" value="BUY">Delete</button></td>
-                <td><input type="hidden" name="order_id" value=' . $row['order_id'] . '><button class="btn btn--radius-2 btn--red" type="submit" name="sell" value="SELL">Export</button></td>
-            ';
-        }
-    ?>
+                ?>
         
             </tr>
             <table class="table-fill">
