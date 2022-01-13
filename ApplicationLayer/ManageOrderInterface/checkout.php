@@ -60,7 +60,7 @@ if($_SESSION['status'] == null){
     <meta name="author" content="">
 
     <title>DINGO FOOD - Food Ordering System (FOS)</title>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
         rel="stylesheet"  type='text/css'>
     </link>
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -74,7 +74,12 @@ body, html {
 }
 
 .hero-image {
-  display: none;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/Project/img/dingoLogo4.jfif");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .hero-text {
@@ -92,7 +97,7 @@ body, html {
   display: inline-block;
   padding: 10px 25px;
   color: black;
-  background-color: black;
+  background-color: #ddd;
   text-align: center;
   cursor: pointer;
 }
@@ -106,9 +111,7 @@ ul {
     list-style-type: none;
 
 }
-#navigation-bar a.a-cart:hover {
-    color: #000 !important;
-}
+
 
 /* Create two equal columns that floats next to each other */
 .column {
@@ -124,15 +127,9 @@ ul {
     display: table;
     clear: both;
 }
-footer {
-    position: absolute;
-    bottom: 0;
-    left: 40%;
-    padding: 1.5rem;
-}
 </style>
  </head>
-
+      
   <body>
 
 
@@ -146,17 +143,17 @@ footer {
   <div id="menu-nav">
   <div style="list-style-type: none;" id="navigation-bar">
     <ul>
-                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageCustomerInterface/home.php"><i class="fa fa-home"></i><span>Home</span></a></li>
-                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageMenuInterface/viewMenu.php"><i class="fa fa-book"></i><span>Menu</span></a></li>
-                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageOrderInterface/cart.php"><i class="fa fa-shopping-cart"></i><span>Cart</span></a></li>
-                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageRefundInterface/refundList.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
-                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageCustomerInterface/logout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
-
-                <a class="a-cart" href="/Project/ApplicationLayer/ManageCustomerInterface/customerProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $name; ?></span></a>
+                <li><a href="/Project/ApplicationLayer/ManageCustomerInterface/home.php"><i class="fa fa-home"></i><span>Home</span></a></li>
+                <li><a href="/Project/ApplicationLayer/ManageMenuInterface/viewMenu.php"><i class="fa fa-book"></i><span>Menu</span></a></li>
+                <li><a href="/Project/ApplicationLayer/ManageOrderInterface/cart.php"><i class="fa fa-shopping-cart"></i><span>Cart</span></a></li>
+                <li><a href="/Project/ApplicationLayer/ManageRefundInterface/refundList.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
+                <li><a href="/Project/ApplicationLayer/ManageCustomerInterface/logout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
+                
+                <a href="/Project/ApplicationLayer/ManageCustomerInterface/customerProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $name; ?></span></a>
             </ul>
 
   </div>
-
+  
 </div>
 
      </div>
@@ -165,11 +162,12 @@ footer {
 <center><h1>THANK YOU</h1></center>
 <center><h1>Your Order Has been Checkout!</h1></center>
 
-
+    
 
     <!-- Footer -->
     <footer class="p-4 mb-0 bg-secondary">
         <div class="container">
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <p class="m-0 text-center text-white">&copy; 2021 DINGO FOOD. All Rights Reserved</p>
         </div>
         <!-- /.container -->
@@ -194,6 +192,6 @@ footer {
 
 
 
-
+        
       </body>
    </html>
