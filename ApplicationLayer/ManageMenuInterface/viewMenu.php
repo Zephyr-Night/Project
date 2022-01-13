@@ -120,7 +120,7 @@ body {
 }
 
 .status {
-  color: green;
+  color: green;/*edit*/
   font-size: 16px;
 }
 
@@ -169,6 +169,7 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  
 }
 
 .hero-text {

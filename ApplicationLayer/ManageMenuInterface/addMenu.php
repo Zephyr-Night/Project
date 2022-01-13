@@ -252,7 +252,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #c69f9f;
+  background: white;
 }
 
 .hero-image {
@@ -471,6 +471,7 @@ body, html {
     <label class="container">Cake 
         <input type="radio" id="menu_category" name="menu_category" value="Cake" required>
         <span style="left: 12%" class="checkmark"></span>
+        
     </label>
     <label class="container">Beverage
         <input type="radio" id="menu_category" name="menu_category" value="Beverage">

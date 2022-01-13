@@ -78,6 +78,10 @@ if (isset($_GET['term'])) {
 		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300'>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
 		<meta name="author" content="">
 
 		<title>DINGO FOOD - Food Ordering System (FOS)</title>
@@ -96,6 +100,7 @@ if (isset($_GET['term'])) {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+ 
 }
 
 /* Float four columns side by side */
@@ -132,20 +137,20 @@ body {
 }
 
 #emp_table {
-    border:3px solid lavender;
-    border-radius:3px;
+    border:1px solid lavender;
+    border-radius:1px;
 }
 
 /* Table header */
 
 .tr_header th a{
-    color: black;
+    color: white;
   text-align: center;
     text-decoration: none;
 }
 
-.tr_header{
-    background-color: #ff99b3 ;
+.tr_header{ 
+    background-color: black ;
 }
 
 .tr_header th{
@@ -165,13 +170,7 @@ body {
     color:black;
 }
 
-#content{
-    border:1px solid darkgrey;
-    border-radius:3px;
-    padding:5px;
-    width: 100%;
-    margin: 0 auto;
-}
+
 
 /* */
 #div_pagination{
@@ -184,7 +183,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #c69f9f;
+  background: white;
 }
 
 .hero-image {
@@ -226,27 +225,17 @@ ul {
 
 }
 
-/* Button */
-.btn {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+.custom {
+    width: 150px !important;
 }
 
 .btn1 {
-  background-color: #4CAF50; 
-  color: black; 
+  background-color: #0645AD; 
+  color: white; 
   width: 80px;
   height: 25px;
-  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  border: 2px solid #0645AD;
 }
 
 
@@ -261,6 +250,7 @@ ul {
   color: black; 
   width: 80px;
   height: 25px;
+  border-radius: 12px;
   border: 2px solid #f44336;
 }
 
@@ -309,11 +299,11 @@ $sno = $row + 1;
 <!-- DISPLAY MENU ACCORDING MENU_CATEGORY -->
 
 <div class="container" style="margin-top:20px">
-          <center><h2><?php echo isset($_GET['menu_category'])? $_GET['menu_category']: '';?> List Menu [
+          <center><h5><?php echo isset($_GET['menu_category'])? $_GET['menu_category']: '';?> List Menu [
                 <a href="listMenu.php">All</a> .
                 <a href="listMenu.php?menu_category=Cake">Cake</a> .
                 <a href="listMenu.php?menu_category=Beverage">Beverage</a> .
-                <a href="listMenu.php?menu_category=Mini Bites">Mini Bites</a> ]</h2>
+                <a href="listMenu.php?menu_category=Mini Bites">Mini Bites</a> ]</h5>
 <br>
 
 <!-- DISPLAY MENU -->
@@ -347,52 +337,53 @@ $sno = $row + 1;
   <!-- Page Content  -->
   <div id="content">
 
-    <table id="emp_table" width="100%" border="0" >
-
-      <tr class="tr_header" >
-        <th class="solid"><a>No</a></th>
-        <th class="solid"><a>Name</a></th>
-        <th class="solid"><a>Price</a></th>
-        <th class="solid"><a>Cost</a></th>
-        <th class="solid"><a>Category</a></th>
-        <th class="solid"><a>Description</a></th>
-        <th class="solid"><a>Status</a></th>
-        <th class="solid"><a>Image</a></th>
-        <th class="solid"><a>Image File</a></th>
-        <th class="solid"><a>Action</a></th>
-
+    <table  class="table" >
+      <thead class="table-dark">
+      <tr >
+        <th>No</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Cost</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Image</th>
+        <th>Image File</th>
+        <th>Action</th>
       </tr>
-      <?php 
+      </thead>
+      <tbody class="table-light">
+        <?php 
 
-        foreach($data as $row){
-      ?>
-      <tr text-align="center">
-        <td class="solid"><?php echo $sno; ?></td>
-        <td class="solid"><?php echo $row['menu_name']; ?></td>
-        <td class="solid">RM <?php echo $row['menu_price']; ?></td>
-        <td class="solid">RM <?php echo $row['cost']; ?></td>
-        <td class="solid"><?php echo $row['menu_category']; ?></td>
-        <td class="solid"><?php echo $row['menu_description']; ?></td>
-        <td class="solid"><?php echo $row['menu_status']; ?></td>
-        <td class="solid"><img src="/Project/img/<?php echo $row["menu_image"]; ?>" style="width:40px"></td>
-        <td><?php echo $row['menu_image']; ?></td>
+          foreach($data as $row){
+          ?>
+          <tr text-align="center">
 
-<!-- ACTION BUTTON (EDIT/DELETE MENU) -->
+            <td class="solid"><?php echo $sno; ?></td>
+            <td class="solid"><?php echo $row['menu_name']; ?></td>
+            <td class="solid">RM <?php echo $row['menu_price']; ?></td>
+            <td class="solid">RM <?php echo $row['cost']; ?></td>
+            <td class="solid"><?php echo $row['menu_category']; ?></td>
+            <td class="solid"><?php echo $row['menu_description']; ?></td>
+            <td class="solid"><?php echo $row['menu_status']; ?></td>
+            <td class="solid"><img src="/Project/img/<?php echo $row["menu_image"]; ?>" style="width:40px"></td>
+            <td><?php echo $row['menu_image']; ?></td>
 
-        <td><form action="" method="POST" onsubmit="return confirm('Are you sure want to delete?');">
-          <button class="button btn1" input type="button" name = "edit" value="Edit" onclick="location.href='editMenu.php?id=<?=$row['menu_id']?>'">Edit</button><br>
-          <input type="hidden" name="menu_id" value="<?=$row['menu_id']?>"><br>
-          <button class="button btn2" input type="submit" name="delete" value="Delete">Delete</button>
-        </form></td>
+            <!-- ACTION BUTTON (EDIT/DELETE MENU) -->
 
-
-      </tr>
-
-      <?php
-      $sno++;
-      } 
-      ?>
-    </table>
+            <td><form action="" method="POST" onsubmit="return confirm('Are you sure want to delete?');">
+              <button class="btn btn-primary custom" input type="button" name = "edit" value="Edit" onclick="location.href='editMenu.php?id=<?=$row['menu_id']?>'">Edit</button><br>
+              <input type="hidden" name="menu_id" value="<?=$row['menu_id']?>"><br>
+              <button class="btn btn-danger custom" input type="submit" name="delete" value="Delete">delete</button>
+            </form></td>
+          </tr>
+        <?php
+          $sno++;
+          } 
+          ?>
+      </tbody>
+     
+  </table>
 
 
                     </div>

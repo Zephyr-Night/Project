@@ -151,7 +151,7 @@ body {
     text-align:center;
 }
 
-<!-- BUTTON STYLE -->
+/* <!-- BUTTON STYLE --> */
 .button {
     background-color: #e74c3c; /* Green */
     border: none;
@@ -187,7 +187,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #c69f9f;
+  background: white;
 }
 
 .hero-image {
