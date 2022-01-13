@@ -33,131 +33,104 @@ function makeConnect($sql){
   return $result;
 }
 ?>
-<html lang="en" dir="ltr">
-  <head>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
     <meta charset="utf-8">
-      <link rel="stylesheet" href="/Project/css/dingo.css">
-      <link rel="stylesheet" href="/Project/css/dingo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-         <script language="javascript" type="text/javascript">
-         window.history.forward();
-         </script>
+    <title>DINGO FOOD - Food Ordering System (FOS)</title>
 
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/Project/css/style1.css">
 
-         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300'>
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
 
-         <meta name="author" content="">
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Dingo Food</h3>
+            </div>
 
-         <title>DINGO FOOD - Food Ordering System (FOS)</title>
-         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
-             type='text/css'>
-         </link>
-         <link href="/Project/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-         <link rel="stylesheet" href="/Project/css/home.css">
-    <style>
-    body, html {
-        height: 100%;
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+            <ul class="list-unstyled components">
+               <p>Admin</p>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i>&nbsp;List</a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
+                </li>
+                <li class="active">
+                    <a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fas fa-money-bill-alt"></i>&nbsp;Refund</a>
+                </li>
+            
+        </nav>
 
-    .hero-image {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/Project/img/dingoLogo4.jfif");
-        height: 50%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-    }
+  <!-- Page Content  -->
+  <div id="content">
 
-    .hero-image2 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Project/img/wall4.jpg");
-        height: 50%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-    }
+<nav class="navbar navbar-expand-lg navbar-light bg-white topbar mb-4 static-top shadow">
+        <div class="container-fluid">
 
-     .hero-text {
-         text-align: center;
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         color: white;
-     }
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span>Toggle Sidebar</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-align-justify"></i>
+            </button>
 
-     .hero-text button {
-         border: none;
-         outline: 0;
-         display: inline-block;
-         padding: 10px 25px;
-         color: black;
-         background-color: #ddd;
-         text-align: center;
-         cursor: pointer;
-     }
-
-     .hero-text button:hover {
-         background-color: #555;
-         color: white;
-     }
-
-     ul {
-         list-style-type: none;
-
-     }
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item ">
+                    <a class="nav-link" href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fas fa-sign-out-alt"></i>&nbsp;<span>Sign Out</span></a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user"></i>
+                &nbsp; <?php echo $admin_username; ?>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php">Profile</a>
+                    <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfileEdit.php">Edit Profile</a>
+                </div>
+                </div>
+        </div>
+    </nav>
 
 
-     /* Create two equal columns that floats next to each other */
-     .column {
-         float: left;
-         width: 50%;
-         padding: 0 10%;
-         height: 300px;
-         /* Should be removed. Only for demonstration */
-     }
+             <div class="container-fluid">
 
-     /* Clear floats after the columns */
-     .row:after {
-         content: "";
-         display: table;
-         clear: both;
-     }
-     </style>
-  </head>
+                    <!-- Page Heading -->
+                    <div class="card shadow mb-4">
+    <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Daily Report</h6>
+                        </div>
+                        <div class="card-body">
+                           
 
-  <body>
-     <div class="hero-image">
-  <div class="hero-text">
-    <h1 style="font-size:70px">D I N G O F O O D</h1>
-    <p style="color: black">Everything's Fresh Here at DingoFood</p><br>
-  </div>
-</div>
-    <div id="menu-nav">
-    <div style="list-style-type: none;" id="navigation-bar">
-       <ul>
-      <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>Home</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i><span>List</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i><span>New Menu</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageReportInterface/indexAdmin.php"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
-    <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
-    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $admin_username; ?> </span></a>
-    </ul>
 
-    </div>
-
-  </div>
-  <center>
+                    <center>
     <h2> Refund request list</h2>
     <form method="post">
-    <table class="content-table">
+    <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
            <tr>
              <th>User name</th>
@@ -206,19 +179,53 @@ function makeConnect($sql){
 
     </table>
     </form>
-  </center>
 
-  </body>
+
+</div>   
+</div>  
+
+                    </div>
+                <br><br><br><br>
+
+                 <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>  
+                    
+        </div>
+
+    </div>
+
+    <script>
+
+         function yes() {
+         alert("Refund Request has been Approve");
+        }
+
+        function no() {
+         alert("Refund Request has been Reject");
+        }
+
+        </script>
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
 </html>
-
-<script>
-
-function yes() {
- alert("Refund Request has been Approve");
-}
-
-function no() {
- alert("Refund Request has been Reject");
-}
-
-</script>

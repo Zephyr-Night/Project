@@ -27,10 +27,8 @@ if(isset($_POST['add'])){
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en" style="background:none;">
 
-<head>
+
 
   <title>Add Menu</title>
   <script language="javascript" type="text/javascript">
@@ -291,58 +289,163 @@ body, html {
   color: white;
 }
 
-ul {
-    list-style-type: none;
 
-}  
+    <title>DINGO FOOD - Food Ordering System (FOS)</title>
 
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/Project/css/style1.css">
 
-.card button:hover {
-  opacity: 0.7;
-}
-
-  </style>
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Dingo Food</h3>
+            </div>
 
-<!-- HEADER DINGO -->
+            <ul class="list-unstyled components">
+               <p>Admin</p>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i>&nbsp;List</a>
+                </li>
+                <li class="active">
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fas fa-money-bill-alt"></i>&nbsp;Refund</a>
+                </li>
+            
+        </nav>
 
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="font-size:70px">D I N G O F O O D</h1>
-    <p style="color: black">Everything's Fresh Here at DingoFood</p><br>
-  </div>
+        <!-- Page Content  -->
+         <!-- Page Content  -->
+         <div id="content">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white topbar mb-4 static-top shadow">
+        <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span>Toggle Sidebar</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-align-justify"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item ">
+                    <a class="nav-link" href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fas fa-sign-out-alt"></i>&nbsp;<span>Sign Out</span></a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user"></i>
+                &nbsp; <?php echo $admin_username; ?>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php">Profile</a>
+                    <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfileEdit.php">Edit Profile</a>
+                </div>
+                </div>
+        </div>
+    </nav>
+
+
+             <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Add New Menu</h1>
+                    </div>
+
+                    <div class="card shadow mb-4">
+    <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Menu</h6>
+                        </div>
+                        <div class="card-body">
+
+                      <form id="msform" action="" method="POST" onsubmit="return confirm('Make sure menu information are correct');">
+
+                    <fieldset>
+                    <p style = "font-size: 15px; color:grey; ">Fill in all new menu details in the fields</p>
+                    <p style = "font-size: 14px; color:red; "><b>* required</b></p><br>
+
+                    <div class="form-group">
+                    <p style="font-size: 16px; color: black; text-align: left;"> Name <label style="font-size: 16px; color: red;"> * </label></p>
+                    <input type="text" id="menu_name" name="menu_name" class="form-control" required><br/>
+                    </div>
+
+                    <div class="form-group">
+                    <p style="font-size: 16px; color: black; text-align: left"> Price <label style="font-size: 16px; color: red;"> * </label></p>
+                    <input type="float" id="menu_price" name="menu_price" class="form-control" required><br/>
+                    </div>
+
+                    <div class="form-group">
+                    <p style="font-size: 16px; color: black; text-align: left"> Cost <label style="font-size: 16px; color: red;"> * </label></p>
+                    <input type="float" id="cost" name="cost" class="form-control" required><br/>
+                    </div>
+
+                    <p style="font-size: 16px; color: black; text-align: left"> Category <label style="font-size: 16px; color: red;"> * </label></p>
+                    <div style="display:flex; border: 1px solid lightgrey; padding: 13px; border-radius: 4px; font-size: 15px;">
+                    <label class="container">Cake 
+                        <input type="radio" id="menu_category" name="menu_category" value="Cake" required>
+                        <span style="left: 12%" class="checkmark"></span>
+                    </label>
+                    <label class="container">Beverage
+                        <input type="radio" id="menu_category" name="menu_category" value="Beverage">
+                        <span style="left:40%" class="checkmark"></span>
+                    </label>
+                    <label class="container">Mini Bites
+                        <input type="radio" id="menu_category" name="menu_category" value="Mini Bites">
+                        <span style="left:69%" class="checkmark"></span>
+                    </label>
+                    </div><br/>
+
+                    <div class="form-group">
+                    <p style="font-size: 16px; color: black; text-align: left"> Description <label style="font-size: 16px; color: red;"> * </label></p>
+                    <input type="text" id="menu_description" name="menu_description" class="form-control" required><br/>
+                    </div>
+                    <p style="font-size: 16px; color: black; text-align: left"> Status <label style="font-size: 16px; color: red;"> * </label></p>
+                        <div style="display:flex; border: 1px solid lightgrey; padding: 13px; border-radius: 4px; font-size: 15px;">
+                        <label class="container">Available
+                            <input type="radio" id="menu_status" name="menu_status" value="Available" required>
+                            <span style="left: 18%" class="checkmark"></span>
+                        </label>
+                        <label class="container">Not available
+                            <input type="radio" id="menu_status" name="menu_status" value="Not available">
+                            <span style="left:59%" class="checkmark"></span>
+                        </label>
+                        </div><br/>
+
+                    <p style="font-size: 16px; color: black; text-align: left;"> Image <label style="font-size: 16px; color: red;"> * </label></p>
+                    <input type="file" id="menu_image" name="menu_image" required><br/>
+
+                    <br>
+
+                    <!-- ACTION BUTTON (SUBMIT NEW MENU) -->
+
+                    <input class="btn btn-primary" type="submit" name="add" value="Add New Menu">
+                    <a class="btn btn-link" href="listMenu.php">Back</a>
+
+                    </fieldset>
+                    </form>
+
+                    </div>
+                
 </div>
 
-<!-- NAVBAR -->
-
-<div id="menu-nav">
-  <div style="list-style-type: none;" id="navigation-bar">
-    <ul>
-      <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>Home</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i><span>List</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i><span>New Menu</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageReportInterface/indexAdmin.php"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
-    <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
-    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $admin_username; ?> </span></a>
-    </ul>
-
-  </div>
-  
-</div>
 
 <!-- ADD NEW MENU FORM -->
 
