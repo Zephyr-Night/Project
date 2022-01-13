@@ -33,12 +33,7 @@ if(isset($_POST['edit'])){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
-<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 
 <title>Edit Menu</title>
 
@@ -167,11 +162,71 @@ body {
     cursor: pointer;
 }
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="/Project/css/style1.css">
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 4px solid #e74c3c;
+}
 
+.button1:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+<!-- RADIO BUTTON-->
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    left: 26%;
+    height: 25px;
+    width: 25px;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
 
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
@@ -246,67 +301,35 @@ ul {
 }
 
 </style>
-
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Dingo Food</h3>
-            </div>
 
-            <ul class="list-unstyled components">
-               <p>Admin</p>
-                <li>
-                    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
-                </li>
-                <li>
-                    <a href="/ProjectGd/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i>&nbsp;List</a>
-                </li>
-                <li class="active">
-                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
-                </li>
-                <li>
-                    <a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fas fa-money-bill-alt"></i>&nbsp;Refund</a>
-                </li>
-            
-        </nav>
+<!-- HEADER DINGO -->
 
-        <!-- Page Content  -->
-        <div id="content">
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:70px">D I N G O F O O D</h1>
+    <p style="color: black">Everything's Fresh Here at DingoFood</p><br>
+  </div>
+</div>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+<!-- NAVBAR -->
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+<div id="menu-nav">
+  <div style="list-style-type: none;" id="navigation-bar">
+    <ul>
+      <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>Home</span></a></li>
+      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i><span>List</span></a></li>
+      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i><span>New Menu</span></a></li>
+      <li><a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
+      <li><a href="/Project/ApplicationLayer/ManageReportInterface/indexAdmin.php"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
+    <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
+    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $admin_username; ?> </span></a>
+    </ul>
+  </div>
+</div>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item ">
-                            <a class="nav-link" href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fas fa-sign-out-alt"></i>&nbsp;<span>Sign Out</span></a>
-                            </li>
-                            <li class="nav-item active">
-                            <a class="nav-link" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php"><i class="fa fa-user"></i><span>&nbsp; <?php echo $admin_username; ?> </span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-             <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Edit Menu</h1>
-                    </div>
 
 <!-- EDIT MENU FORM -->
 
@@ -314,11 +337,7 @@ ul {
 
     foreach($data as $row){
 ?>
-   <div class="card shadow mb-4">
-    <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Menu</h6>
-                        </div>
-                        <div class="card-body">
+
 <form id="msform" action="" method="POST" onsubmit="return confirm('Are you sure want to update?');">
 
 <fieldset>
@@ -334,22 +353,14 @@ ul {
 <br>
 <p style="font-size: 16px; color: grey;">Menu ID : <?= $row['menu_id']?></p>
 <br>
-<div class="form-group">
 <p style="font-size: 16px; color: black; text-align: left;"> Name <label style="font-size: 16px; color: red;"> * </label></p>
-    <input type="text" id="menu_name" name="menu_name" class="form-control"  value="<?php echo $row['menu_name']; ?>" /><br/>
-</div>
+    <input type="text" id="menu_name" name="menu_name" value="<?php echo $row['menu_name']; ?>" /><br/>
 
-
-<div class="form-group">
 <p style="font-size: 16px; color: black; text-align: left"> Price <label style="font-size: 16px; color: red;"> * </label></p>
-    <input type="float" id="menu_price" name="menu_price" class="form-control" value="<?php echo $row['menu_price']; ?>" /><br/>
-</div>
+    <input type="float" id="menu_price" name="menu_price" value="<?php echo $row['menu_price']; ?>" /><br/>
 
-<div class="form-group">
 <p style="font-size: 16px; color: black; text-align: left"> Cost <label style="font-size: 16px; color: red;"> * </label></p>
-    <input type="float" id="cost" name="cost" class="form-control" value="<?php echo $row['cost']; ?>" /><br/>
-</div>
-
+    <input type="float" id="cost" name="cost" value="<?php echo $row['cost']; ?>" /><br/>
 
 <p style="font-size: 16px; color: black; text-align: left"> Category <label style="font-size: 16px; color: red;"> * </label></p>
     <div style="display:flex; border: 1px solid lightgrey; padding: 13px; border-radius: 4px; font-size: 15px;">
@@ -368,11 +379,8 @@ ul {
     </label>
     </div><br/>
 
-<div class="form-group">
 <p style="font-size: 16px; color: black; text-align: left"> Description <label style="font-size: 16px; color: red;"> * </label></p>
-    <input type="text" id="menu_description" name="menu_description" class="form-control" value="<?php echo $row['menu_description']; ?>" /><br/>
-</div>
-
+    <input type="text" id="menu_description" name="menu_description" value="<?php echo $row['menu_description']; ?>" /><br/>
 
 <p style="font-size: 16px; color: black; text-align: left"> Status <label style="font-size: 16px; color: red;"> * </label></p>
     <div style="display:flex; border: 1px solid lightgrey; padding: 13px; border-radius: 4px; font-size: 15px;">
@@ -386,17 +394,16 @@ ul {
     </label>
     </div><br/>
 
-<div class="form-group">
 <p style="font-size: 16px; color: black; text-align: left"> Image <label style="font-size: 16px; color: red;"> * </label></p>
-    <input type="text" id="menu_image" name="menu_image" class="form-control" value="<?php echo $row['menu_image']; ?>" /><br/>
-</div>
+    <input type="text" id="menu_image" name="menu_image" value="<?php echo $row['menu_image']; ?>" /><br/>
 
 <br><br>
 
 <!-- ACTION BUTTON (SUBMIT EDIT MENU) -->
 
-<input type="submit" class="btn btn-dark" name="edit" value="Save">
- <a class="btn btn-link" href="listMenu.php">Back</a>
+<input type="submit" class="action-button" name="edit" value="Save">
+<a href="listMenu.php">Back</a>
+
 <?php
     }
 ?>
@@ -404,8 +411,6 @@ ul {
 </fieldset>
 </form>
 
-</div>
-</div>
 <!-- Footer -->
     <footer class="p-4 mb-0 bg-secondary">
      <div class="container">
