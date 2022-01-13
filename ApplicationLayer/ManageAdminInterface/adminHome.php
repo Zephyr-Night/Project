@@ -28,7 +28,7 @@ $admin_username = $_SESSION['admin_username'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>DINGO FOOD - Food Ordering System (FOS)</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -54,10 +54,10 @@ $admin_username = $_SESSION['admin_username'];
                     <a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
                 </li>
                 <li>
-                    <a href="/Project/ApplicationLayer/ManageMenuInterface/listMenuM.php"><i class="fa fa-list"></i>&nbsp;List</a>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i>&nbsp;List</a>
                 </li>
                 <li>
-                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenuM.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
                 </li>
                 <li>
                     <a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fas fa-money-bill-alt"></i>&nbsp;Refund</a>
@@ -68,7 +68,7 @@ $admin_username = $_SESSION['admin_username'];
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white topbar mb-4 static-top shadow">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
@@ -82,13 +82,20 @@ $admin_username = $_SESSION['admin_username'];
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item ">
-                                <a class="nav-link" href="#">Sign Out</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Muhammad Fikri</a>
+                            <a class="nav-link" href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fas fa-sign-out-alt"></i>&nbsp;<span>Sign Out</span></a>
                             </li>
                         </ul>
                     </div>
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user"></i>
+                        &nbsp; <?php echo $admin_username; ?>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php">Profile</a>
+                            <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfileEdit.php">Edit Profile</a>
+                        </div>
+                        </div>
                 </div>
             </nav>
 
@@ -97,8 +104,21 @@ $admin_username = $_SESSION['admin_username'];
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="/Project/ApplicationLayer/ManageReportInterface/indexAdmin.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        
+                        
+                            <button type="button" class="d-none d-md-inline-block btn btn-md btn-primary shadow-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Report
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/Project/ApplicationLayer/ManageReportInterface/dailyReport.php">Daily</a>
+                                <a class="dropdown-item" href="/Project/ApplicationLayer/ManageReportInterface/weeklyReport.php">Weekly</a>
+                                <a class="dropdown-item" href="/Project/ApplicationLayer/ManageReportInterface/monthlyReport.php">Monthly</a>
+                            </div>
+                            
+
+
+                        <!-- <a href="/Project/ApplicationLayer/ManageReportInterface/indexAdmin.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
 
 
@@ -113,7 +133,7 @@ $admin_username = $_SESSION['admin_username'];
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">RM4,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">RM10,000</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -123,6 +143,7 @@ $admin_username = $_SESSION['admin_username'];
                             </div>
                         </div>
 
+
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
@@ -131,7 +152,7 @@ $admin_username = $_SESSION['admin_username'];
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">RM 21,000</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">RM2,500</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -139,6 +160,7 @@ $admin_username = $_SESSION['admin_username'];
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                         <!-- Earnings (Monthly) Card Example -->
@@ -156,7 +178,7 @@ $admin_username = $_SESSION['admin_username'];
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 60%" aria-valuenow="50" aria-valuemin="0"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
                                                 </div>

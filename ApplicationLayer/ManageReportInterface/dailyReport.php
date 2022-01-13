@@ -30,29 +30,24 @@ $admin_username = $_SESSION['admin_username'];
 
 
 
-<!doctype html>
+<!DOCTYPE html>
 <html>  
 <head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Daily Report</title>
-	
- <!-- Custom fonts for this template -->
-    <link href="/Project/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-	
 
-	
-	<link rel="stylesheet" href="/Project/css/homePage.css">
-    <link rel="stylesheet" href="https://datatables.net/extensions/buttons/examples/html5/simple.html">
-    <link rel="stylesheet" href="/Project/css/monthlyStyle.css">
-    <link rel="stylesheet" href="\Project\css\tableMonthly.css">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/Project/css/style1.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
     <?php
 	
     $rowperpage = 90;
@@ -108,166 +103,90 @@ $admin_username = $_SESSION['admin_username'];
 
     ?>
 </head>
-<style>
-     body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/Project/img/dingoLogo4.jfif");
-  height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-.hero-image2 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Project/img/wall4.jpg");
-  height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-
-.hero-text button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 10px 25px;
-  color: black;
-  background-color: #ddd;
-  text-align: center;
-  cursor: pointer;
-}
-
-.hero-text button:hover {
-  background-color: #555;
-  color: white;
-}
-
-ul {
-    list-style-type: none;
-
-}
-#content{
-    border:1px solid darkgrey;
-    border-radius:3px;
-    padding:5px;
-    width: 75%;
-    margin: 0 auto;
-}
-
-/* Table */
-#emp_table {
-    border:3px solid lavender;
-    border-radius:3px;
-}
-
-/* Table header */
-
-.tr_header th a{
-    color: black;
-    text-decoration: none;
-}
-
-.tr_header{
-    background-color: #e74c3c ;
-	
-}
-
-.tr_header th{
-    color:white;
-    padding:10px 0px;
-    letter-spacing: 1px;
-}
-
-/* Table rows and columns */
-#emp_table td{
-    padding:10px;
-}
-#emp_table tr:nth-child(even){
-    background-color:lavender;
-    color:black;
-}
-
-/* */
-#div_pagination{
-    width:100%;
-    margin-top:5px;
-    text-align:center;
-}
-
-<!-- BUTTON STYLE -->
-
-.button {
-    background-color: #e74c3c; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 50px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-.button1 {
-    background-color: white; 
-    color: black; 
-    border: 4px solid #e74c3c;
-}
-
-.button1:hover {
-    background-color: #e74c3c;
-    color: white;
-}
-
-<!-- /BUTTON STYLE -->
-
-</style>
 <body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Dingo Food</h3>
+            </div>
 
-  <div class="hero-image">
-  <div class="hero-text">
-    <h1 style="font-size:70px">D I N G O F O O D</h1>
-    <p style="color: black">Everything's Fresh Here at DingoFood</p><br>
-  </div>
-</div>
+            <ul class="list-unstyled components">
+               <p>Admin</p>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i>&nbsp;List</a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fas fa-money-bill-alt"></i>&nbsp;Refund</a>
+                </li>
+            
+        </nav>
 
-  <div id="menu-nav">
-  <div style="list-style-type: none;" id="navigation-bar">
-     <ul>
-      <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>Home</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i><span>List</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i><span>New Menu</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
-      <li><a href="/Project/ApplicationLayer/ManageReportInterface/indexAdmin.php"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
-    <li><a href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
-    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $admin_username; ?> </span></a>
-    </ul>
+        <!-- Page Content  -->
+        <div id="content">
 
-  </div>
-  
-</div>
-<!-- END -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white topbar mb-4 static-top shadow">
+                <div class="container-fluid">
 
-<div id="">
-    <table class="table-fill">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item ">
+                            <a class="nav-link" href="/Project/ApplicationLayer/ManageAdminInterface/adminLogout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fas fa-sign-out-alt"></i>&nbsp;<span>Sign Out</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user"></i>
+                        &nbsp; <?php echo $admin_username; ?>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfile.php">Profile</a>
+                            <a class="dropdown-item" href="/Project/ApplicationLayer/ManageAdminInterface/adminProfileEdit.php">Edit Profile</a>
+                        </div>
+                        </div>
+                </div>
+            </nav>
+
+
+             <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Report</h1>
+                        <button type="button" class="d-none d-md-inline-block btn btn-md btn-primary shadow-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Report
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/Project/ApplicationLayer/ManageReportInterface/dailyReport.php">Daily</a>
+                                <a class="dropdown-item" href="/Project/ApplicationLayer/ManageReportInterface/weeklyReport.php">Weekly</a>
+                                <a class="dropdown-item" href="/Project/ApplicationLayer/ManageReportInterface/monthlyReport.php">Monthly</a>
+                    </div>
+             </div>
+
+            
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Daily Report</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr>
             <th class="text-left">No</th>
@@ -281,7 +200,7 @@ ul {
         </tr>
       </thead>
 
-    <?php
+        <?php
         $sno = $row;
         $total_revenue=0;
         foreach($data as $row){ 
@@ -292,7 +211,7 @@ ul {
             $total_amount = $menu_price * $quantity;
             $total_revenue+=$total_amount;
 			$sno ++;
-    ?>
+            ?>
             <form action="" method="POST">
             <tr>
                 <td align='center'><?php echo $sno; ?></td>
@@ -307,10 +226,10 @@ ul {
         
             }
 
-                ?>
+        ?>
         
             </tr>
-            <table class="table-fill">
+           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <tr>
             <th class="text-left" style="text-align:center;">Grand Total</th>
             </tr>
@@ -322,15 +241,16 @@ ul {
             
 
     </table>
-    
-	<br />
+
+
+
+  
 	
     <form method="post">
-        <div id="div_pagination">
-            <a style="text-decoration:none; color: black; padding: 10px 50px;"  class="button button1" href="indexAdmin.php" ><span>Back</span></a>
-        </div>
+                    <a class="btn btn-link" href="adminHome.php">Back</a>
     </form>
 </div>
+
 <!-- Footer -->
     <footer class="p-4 mb-0 bg-secondary">
      <div class="container">

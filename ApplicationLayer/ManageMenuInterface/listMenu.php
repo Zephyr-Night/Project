@@ -60,6 +60,7 @@ if (isset($_GET['term'])) {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -117,28 +118,6 @@ body {
   content: "";
   display: table;
   clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
-.price {
-  color: grey;
-  font-size: 22px;
 }
 
 .card button {
@@ -259,10 +238,12 @@ ul {
   border: 2px solid #0645AD;
 }
 
-.btn1:hover {
-  background-color: white;
-  color: black;
-}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 
 .btn2 {
   background-color: #f44336; 
@@ -273,21 +254,22 @@ ul {
   border: 2px solid #f44336;
 }
 
-.btn2:hover {
-  background-color: white;
-  color: blacl;
-}
-</style>
 
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/Project/css/style1.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
-
-<body>
-
 
 <?php
 $row=0;
 $sno = $row + 1;
 ?>
+
 
 <!-- HEADER DINGO -->
 
@@ -326,7 +308,35 @@ $sno = $row + 1;
 
 <!-- DISPLAY MENU -->
 
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Dingo Food</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+               <p>Admin</p>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageAdminInterface/adminHome.php"><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
+                </li>
+                <li class="active">
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/listMenu.php"><i class="fa fa-list"></i>&nbsp;List</a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageMenuInterface/addMenu.php"><i class="fa fa-plus"></i>&nbsp;New Menu</a>
+                </li>
+                <li>
+                    <a href="/Project/ApplicationLayer/ManageRefundInterface/refundAdmin.php"><i class="fas fa-money-bill-alt"></i>&nbsp;Refund</a>
+                </li>
+            
+        </nav>
+
+  <!-- Page Content  -->
   <div id="content">
+
     <table  class="table" >
       <thead class="table-dark">
       <tr >
@@ -373,36 +383,42 @@ $sno = $row + 1;
           ?>
       </tbody>
      
-    </table>
-  </div>
-
-</div>
-
-<br>
-
-    
-<!-- Bootstrap core JavaScript -->
-    <script src="/Project/vendor/jquery/jquery.min.js"></script>
-    <script src="/Project/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugin JavaScript -->
-    <script src="/Project/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-<!-- Contact form JavaScript -->
-    <script src="/Project/js/jqBootstrapValidation.js"></script>
-    <script src="/Project/js/contact_me.js"></script>
-
-<!-- Custom scripts for this template -->
-    <script src="/Project/js/agency.min.js"></script>
+  </table>
 
 
-<!-- Footer -->
-    <footer class="p-4 mb-0 bg-secondary">
-     <div class="container">
-       <CENTER><p class="m-0 text-center text-white">&copy; 2021 DINGO FOOD. All Rights Reserved</p></CENTER>
-     </div>
-    </footer>
+                    </div>
 
+
+                      
+
+                 <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>  
+                    
+        </div>
+
+    </div>
+
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
 </body>
+
 </html>
