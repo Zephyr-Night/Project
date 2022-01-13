@@ -393,7 +393,7 @@ ul {
         <input type="radio" id="menu_status" name="menu_status" value="Not available">
         <span style="left:59%" class="checkmark"></span>
     </label>
-    </div><br/> <br>
+    </div><br/>
 
 <p style="font-size: 16px; color: black; text-align: left;"> Image <label style="font-size: 16px; color: red;"> * </label></p>
 <input type="file" id="menu_image" name="menu_image" required><br/>
