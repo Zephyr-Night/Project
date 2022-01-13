@@ -62,7 +62,6 @@ $row1=mysqli_fetch_assoc($result);
             type='text/css'>
         </link>
         <link href="/Project/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="/Project/css/home.css">
      <link rel="stylesheet" href="dingo.css">
      <style>
@@ -155,7 +154,6 @@ $row1=mysqli_fetch_assoc($result);
                 
                 <li><a href="/Project/ApplicationLayer/ManageOrderInterface/cart.php"><i class="fa fa-shopping-cart"></i><span>Cart</span></a></li>
                 <li><a href="/Project/ApplicationLayer/ManageRefundInterface/refundList.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
-                <li><a href="/Project/ApplicationLayer/ManageRefundInterface/myRefund.php"><i class="material-icons" style="font-size:21px">class</i><span>My Refund</span></a></li>
                 <li><a href="/Project/ApplicationLayer/ManageCustomerInterface/logout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
                 
                 <a href="/Project/ApplicationLayer/ManageCustomerInterface/customerProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $name; ?></span></a>
