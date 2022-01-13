@@ -22,13 +22,13 @@ require_once '../../libs/custSession.php';
 
 $orders = new orderController();
 $menu = new menuController();
-$menu_id = $_GET['id']; 
+$menu_id = $_GET['id'];
 $data = $menu->viewMenu($menu_id);
 
 if(isset($_POST['add']))
 {
   $orders->AddOrders();
-  
+
 
 }
 
@@ -47,12 +47,12 @@ $name = $_SESSION['username'];
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300'>
 
         <meta name="author" content="">
-      
+
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-       
+
          <script src="https://kit.fontawesome.com/e40306d6a0.js" crossorigin="anonymous"></script>
          <title>DINGO FOOD - Food Ordering System (FOS)</title>
-         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
         rel="stylesheet"  type='text/css'>
         </link>
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -64,14 +64,19 @@ body, html {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
+#navigation-bar a.a-cart:hover {
+color: #000 !important;
+}
+footer.p-4.mb-0.bg-secondary {
+    margin: auto;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+}
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/Project/img/dingoLogo3.jfif");
-  height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  display: none;
 }
 
 .hero-text {
@@ -113,6 +118,16 @@ ul {
     height: 430px; /* Should be removed. Only for demonstration */
 }
 
+.image-add-order{
+  width: 33%;
+    height: 256px;
+    float: right;
+}
+input.form-control-add {
+    width: 15%;
+    border: none;
+    filter: drop-shadow(1px 3px 2px rgb(0 0 0 / 0.1));
+}
 /* Clear floats after the columns */
 .row:after {
     content: "";
@@ -135,14 +150,14 @@ ul {
     <div id="menu-nav">
         <div style="list-style-type: none;" id="navigation-bar">
         <ul>
-                <li><a href="/Project/ApplicationLayer/ManageCustomerInterface/home.php"><i class="fa fa-home"></i><span>Home</span></a></li>
-                <li><a href="/Project/ApplicationLayer/ManageMenuInterface/viewMenu.php"><i class="fa fa-book"></i><span>Menu</span></a></li>
-                
-                <li><a href="/Project/ApplicationLayer/ManageOrderInterface/cart.php"><i class="fa fa-shopping-cart"></i><span>Cart</span></a></li>
-                <li><a href="/Project/ApplicationLayer/ManageRefundInterface/refundList.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
-                <li><a href="/Project/ApplicationLayer/ManageCustomerInterface/logout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
-                
-                <a href="/Project/ApplicationLayer/ManageCustomerInterface/customerProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $name; ?></span></a>
+                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageCustomerInterface/home.php"><i class="fa fa-home"></i><span>Home</span></a></li>
+                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageMenuInterface/viewMenu.php"><i class="fa fa-book"></i><span>Menu</span></a></li>
+
+                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageOrderInterface/cart.php"><i class="fa fa-shopping-cart"></i><span>Cart</span></a></li>
+                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageRefundInterface/refundList.php"><i class="fa fa-money"></i><span>Refund</span></a></li>
+                <li><a class="a-cart" href="/Project/ApplicationLayer/ManageCustomerInterface/logout.php" onclick="return confirm('Are you sure you want to sign out?')"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></li>
+
+                <a class="a-cart" href="/Project/ApplicationLayer/ManageCustomerInterface/customerProfile.php" id="topnav-right"><i class="fa fa-user"></i><span>Hello <?php echo $name; ?></span></a>
             </ul>
 
         </div>
@@ -156,38 +171,38 @@ ul {
 
 <div class="row">
   <div class="column">
-    <center><img src="../../img/<?php echo $row['menu_image'];?>" width="340" height="340"></center>
+    <center><img class="image-add-order" src="../../img/<?php echo $row['menu_image'];?>" width="340" height="340"></center>
   </div>
 
-  <div class="column" style="background-color:#c69f9f;">
-    <h2><b><?= $row['menu_name']?></b></h2>
+  <div class="column" style="">
+    <h2><p><?= $row['menu_name']?></p></h2>
     <p><?= $row['menu_description']?></p>
-    <br><h4><b>Price : RM <?= $row['menu_price']?> </b></h4>
+    <br><h4><p>Price : RM <?= $row['menu_price']?> </p></h4>
 
-    <input type="hidden" name="order_id" value="<?= $row['order_id']?>">
+    <input type="hidden" name="order_id" value='<?= $row["order_id"]?>'>
     <input type="hidden" name="menu_name" value="<?= $row['menu_name']?>">
-    <input type="hidden" name="order_quantity" value="<?= $row['order_quantity']?>">
+    <input type="hidden" name="order_quantity" value='<?= $row["order_quantity"]?>'>
     <input type="hidden" name="menu_price" value="<?= $row['menu_price']?>">
     <input type="hidden" name="menu_image" value="<?= $row['menu_image']?>">
-    <br><p>Quantity : <br> <br><input type="number" id="order_quantity" name="order_quantity" class="form-control" value="1" min="1" max="5"></p>
+    <br><p>Quantity : <br> <br><input type="number" id="order_quantity" name="order_quantity" class="form-control form-control-add" value="1" min="1" max="5"></p>
 
     <br>
-                  
+
 
                   <?php
                   $name = $_SESSION['username'];
                     ?>
                     <input type="hidden" name="name" value="<?=$row['menu_name']?>">
                     <input type="hidden" name="price" value="<?=$row['menu_price']?>">
-                  
+
                     <input type="hidden" name="image" value="<?=$row['menu_image']?>">
                     <!-- <input type="hidden" name="order_quantity" value="<?=$row['order_quantity']?>"> -->
-                   
-                    <center><button class="btn btn-primary" type="submit" name="add" value="Add to Cart"> Add to Cart </button></center>
-                   
 
-              
-                  
+                    <button class="btn btn-primary" type="submit" name="add" value="Add to Cart"> Add to Cart </button>
+
+
+
+
                 </center>
               </div>
                 </form></td>
@@ -214,7 +229,7 @@ ul {
     <br><p>Quantity : <br> <br><input type="number" id="order_quantity" name="order_quantity" class="form-control" value="1" min="1" max="5"></p>
     <br>
     <center><div class="clear-float">
-   
+
     <button id="addCart" type="submit" name="add" class="btn btn-primary">Add to cart</button>
 
    </center></div>
@@ -228,9 +243,9 @@ ul {
     <br><br>-->
 
     <!-- Footer -->
-    <footer class="p-4 mb-0 bg-secondary">
+    <footer class="p-4 mb-0 bg-secondary" style="background:none !important;">
      <div class="container">
-       <p class="m-0 text-center text-white">&copy; 2021 DINGO FOOD. All Rights Reserved</p>
+       <p class="m-0 text-center">&copy; 2021 DINGO FOOD. All Rights Reserved</p>
      </div>
     </footer>
 
