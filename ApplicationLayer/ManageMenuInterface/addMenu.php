@@ -254,7 +254,7 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: white;
+  background: #c69f9f;
 }
 
 .hero-image {
