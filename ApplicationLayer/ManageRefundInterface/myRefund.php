@@ -154,7 +154,7 @@ function makeConnect($sql){
   <body>
     <div class="hero-image">
         <div class="hero-text">
-            <h1 style="font-size:70px">Refund Page</h1>
+            <h1 style="font-size:70px">My Refund </h1>
 
         </div>
     </div>
@@ -182,13 +182,14 @@ function makeConnect($sql){
 <center><h3>My Refund  </h3 >
 
 <form method="post">
-<table class="content-table">
+<table class="table table-striped table-hover">
 
-       <tr>
-         <th>refund id</th>
+       <tr class="text-white bg-dark">
+         <th >Refund id</th>
          <th>Refund Item</th>
          <th>Time</th>
          <th>Current Status</th>
+         <th></th>
 
       </tr>
 

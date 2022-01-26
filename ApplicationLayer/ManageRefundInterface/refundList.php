@@ -179,14 +179,14 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
 ?>
   <form  action="refundList.php" method="POST">
     <center>
-  <table class="content-table">
+  <table class="table table-striped ">
 
-         <tr>
+         <tr class="text-white bg-dark">
            <th>No</th>
            <th>Item</th>
            <th>Price</th>
            <th>Item Detail</th>
-          <th>Select item</th>
+          <th>Select Menu Item</th>
         </tr>
 <?php
 if($result_list_refund->num_rows>0){
@@ -199,7 +199,7 @@ if($result_list_refund->num_rows>0){
       <td><?php echo $no ?></td>
       <td><?php echo $row['item']; ?></td>
       <td>RM <?php echo $row['price']; ?></td>
-      <td><a href="refundDetail.php?view_detail=<?php echo $row['refund_id']; ?>">Details</td>
+      <td><a href="refundDetail.php?view_detail=<?php echo $row['refund_id']; ?>" class="text-info">View Details</td>
      <td><input type="checkbox"  name="choice[]"  id="<?php echo $no?>"  value="<?php echo $row['item']?>"  ></td>
 
 
@@ -219,8 +219,8 @@ if($result_list_refund->num_rows>0){
 
 
 <br>
-<tr><td></td>
- <td><h4>Total cost refund :</h4> </td><br>
+<tr class="table-active"><td></td>
+ <td><h4>Total Cost Refund :</h4> </td><br>
 <td>
   <h3>
 <?php if(isset($_POST['submit_add'])){
